@@ -58,6 +58,13 @@ const wordSearch = (letters, word) => {
         if(result.includes(word)){
             return true;
         }
+        
+        let array = result.split();
+        array = array.reverse();
+        let reverseString = array.join('');
+        if(reverseString.includes(word)){
+            return true;
+        }
     }
 
     for (let x = 0; x < width; x++) {

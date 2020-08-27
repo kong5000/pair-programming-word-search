@@ -69,10 +69,19 @@ describe("#wordSearch()", function() {
   });
   it("should return true if the word is diagonal", function() {
     const result = wordSearch([
-      ['A','B','C'],
-      ['D','E','F'],
-      ['G','H','I']
-    ], 'CODE');
+      ['B','B','C'],
+      ['D','A','F'],
+      ['G','H','T']
+    ], 'BAT');
+
+    assert.isFalse(result);
+  });
+  it("should return true if the word is diagonal and backwards", function() {
+    const result = wordSearch([
+      ['T','B','C'],
+      ['D','A','F'],
+      ['G','H','C']
+    ], 'CAT');
 
     assert.isFalse(result);
   });
