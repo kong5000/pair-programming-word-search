@@ -67,20 +67,14 @@ describe("#wordSearch()", function() {
 
     assert.isTrue(result);
   });
-  it("should return true if the word is backwards vertically", function() {
+  it("should return true if the word is diagonal", function() {
     const result = wordSearch([
-      ['E', 'D', 'X', 'C', 'Q', 'U', 'A', 'L'],
-      ['D', 'E', 'I', 'N', 'F', 'E', 'L', 'D'],
-      ['O', 'F', 'C', 'F', 'Q', 'U', 'A', 'L'],
-      ['C', 'M', 'J', 'T', 'E', 'V', 'R', 'G'],
-      ['W', 'H', 'C', 'S', 'Y', 'E', 'R', 'L'],
-      ['B', 'F', 'R', 'E', 'N', 'E', 'Y', 'B'],
-      ['U', 'B', 'T', 'W', 'A', 'P', 'A', 'I'],
-      ['O', 'D', 'C', 'A', 'K', 'U', 'A', 'S'],
-      ['E', 'Z', 'K', 'F', 'Q', 'U', 'A', 'L'],
-    ], 'CODE')
+      ['A','B','C'],
+      ['D','E','F'],
+      ['G','H','I']
+    ], 'CODE');
 
-    assert.isTrue(result);
+    assert.isFalse(result);
   });
 
   it("should return false if array is empty", function() {

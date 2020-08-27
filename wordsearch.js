@@ -7,11 +7,7 @@ const wordSearch = (letters, word) => {
     }
 
     const horizontalJoin = letters.map(ls => ls.join(''))
-
-
-
     for (l of horizontalJoin) {
-        // console.log(l, typeof l);
         const array = l.split('');
         const reverse = array.reverse();
         const backwardsString = reverse.join('');
@@ -38,6 +34,38 @@ const wordSearch = (letters, word) => {
             return true;
         }
     }
+
+    // Diagonal Check
+
+    // [0][0] [1][1] [2][2] etc...
+    // keep doing x = x + 1 and y = y + 1  until you reach the edge
+        //If letter === undefined => check the string for the word
+        //
+    let x = 0;
+    let y = 0;
+    const width = letters[0].length;
+    const height = letters.length;
+
+    let getDiagonal = (x, y) => {
+        let xIndex = x;
+        let yIndex = y;
+        let result = "";
+        while(xIndex < width && yIndex < height){
+            result += letters[xIndex][yIndex];
+            xIndex++;
+            yIndex++;
+        }
+        if(result.includes(word)){
+            return true;
+        }
+    }
+
+    for (let x = 0; x < width; x++) {
+        for(let y = 0; y < height; y++){
+            getDiagonal(x, y);
+        }
+    }
+
     return false;
 }
 
